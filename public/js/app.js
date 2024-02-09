@@ -28,12 +28,10 @@ if(window.caches) {
             'logo512.png',
             '/pages/offline.html'
         ]).then(() => {
-            cache.delete('/index.html')
+            //Interceptar un archivo por otro
+            cache.put('index.html', new Response('Interceptado archivo index'))
         })
-        //verificar si existe un archivo dentro del cache, pero que pasa si ese archivo no esta dentrro del cache
-
-        cache.match('index.html').then(res => {
-            res.text().then(console.log)
-        })
+        
+        
     })
 }
