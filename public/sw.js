@@ -1,18 +1,10 @@
-//solicitudes fetch, un usuario lo hace se va a conectar al servidor
-//se le devulev lo que esta en el cache
-//solo fuera de linea
+//estructura para el evento fetch
+self.addEventListener('fetch', event =>{
+    //declaramos una constante de nombre resp que va a ser igual a la respuesta de la peticion fetch
+const offlineResponse = new Response(`Bienvenido para usar la aplicación de el evento fetch`)
 
-//estructura 
-//primera solicitud evento fetch, 
-self.addEventListener('fetch', event => {
-    const offlineResponse = new Response(`
-    Bienvendido
-    Para usar esta aplicacion necesitas conexion a internet
-    `)
-    //no puede ser gestionado por promesas oh servicxces worker 404---
     const resp = fetch(event.request)
-    .catch(() => offlineResponse)
-
-    //interceptarlas solicitudes(304) atraves del service worker, ayuda a dar respuesta personalidada por el service worker 
+    .catch(() => offlineResponse )
+//respondemos con ese mismo
     event.respondWith(resp)
 })
