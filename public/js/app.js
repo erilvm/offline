@@ -32,6 +32,7 @@ if(window.caches) {
             cache.put('index.html', new Response('Interceptado archivo index'))
         })
         
-        
+        //Obtener todos los caches existen en la aplicacion y todos los metodos responden con una promesa
+        cache.keys().then()
     })
 }
