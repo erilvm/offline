@@ -15,16 +15,14 @@ self.addEventListener('install', event => {
             'favicon.ico',
 
         ])
-
     })
-
     event.waitUntil(cacheAppShell)
 })
 
 //El usuario verá en su aplicación únicamente los recursos que están almacenados en caché. 
 //Este proceso se hace dentro del evento fetch    
-self.addEventListener('fetch',event => {
+self.addEventListener('fetch', event => {
     //por medio de la propiedad  event.respondWith interceptando las solicitudes
-    event.responWith(caches.match(event.request))
+    event.respondWith(caches.match(event.request))
 })
 
